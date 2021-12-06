@@ -1,0 +1,86 @@
+<div class="col-s-12">
+    <div class="titulo">
+        <h1>Proveedor</h1>
+    </div>
+</div>
+<div class="col-s-12">
+    <form  (ngSubmit)="agregar()" action="">
+        <table class="col-s-12">
+
+            <tr>
+                <td><label for="nombre">Nombre Empresa</label></td>
+                <td><input type="text" 
+                    id="nombre" 
+                    placeholder="Nombre" 
+                    name="nombrecategoria"
+                    [(ngModel)]="nombreLocal">
+                    </td>
+            </tr>
+            <tr>
+                <td><label for="ubicacion">Ubicacion</label></td>
+                <td><input type="text" 
+                    id="ubicacion" 
+                    placeholder="ubiacion" 
+                    name="ubicacion"
+                    [(ngModel)]="ubicacionLocal">
+                    </td>
+            </tr>
+
+            <tr>
+                <td><label for="ruc">Ruc</label></td>
+                <td><input type="text" 
+                    id="ruc" 
+                    placeholder="ruc" 
+                    name="ruc"
+                    [(ngModel)]="rucLocal">
+                    </td>
+            </tr>
+
+            <tr>
+                <td><label for="contraseña">Contraseña</label></td>
+                <td><input type="password" 
+                    id="contraseña" 
+                    placeholder="contraseña" 
+                    name="contraseña"
+                    [(ngModel)]="contrasenaLocal">
+                    </td>
+            </tr>
+            
+
+        </table>
+        
+        <div class="col-s-3 boton">
+            <button type="summit">Agregar</button>
+        </div>
+    </form>
+    <form (ngSubmit)="eliminar()" action="">
+        <div class="col-s-3 boton">
+            <button type="submit" class="extra">Eliminar</button>
+        </div>
+        <div class="cajat col-s-12">
+
+            <table class="col-s-12" id="tabla2">
+                <tr >
+                    <th>Codigo</th>
+                    <th>Nombre Empresa</th>
+                    <th>Ubicacion</th>
+                    <th>Ruc</th>
+                    <th>Eliminacion</th>
+
+                </tr>
+            
+                <tr *ngFor="let local of locales;let i=index">
+                    <td>{{local.getcodLocal}}</td>
+                    <td>{{local.getnombreLocal}}</td>
+                    <td>{{local.getubicacionLocal}}</td>
+                    <td>{{local.getrucLocal}}</td>
+                    <td><input type="checkbox"   (click)="eliminacion.unshift(i)"></td>
+
+                </tr>
+            
+            
+            </table>
+
+        </div>
+    </form>
+</div>

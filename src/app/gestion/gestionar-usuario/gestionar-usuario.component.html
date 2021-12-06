@@ -1,0 +1,49 @@
+<div class="col-s-12">
+    <div class="titulo">
+        <h1>Usuarios</h1>
+    </div>
+</div>
+<div class="col-s-12">
+
+    
+
+    <div class="cajat col-s-12">
+
+        <table class="col-s-12">
+            <tr>
+                <th>Codigo</th>
+                <th>Dni</th>
+            </tr>
+        
+            <tr *ngFor="let usuario of listarusuarios,let i=index">
+                <td>{{usuario.codUsuario}}</td>
+                <td>{{usuario.dniUsuario}}</td>
+                <button (click)="eliminarUsuario(usuario.codUsuario)">Eliminar</button>
+                <button class="extra" (click)="UsuarioActu(usuario)">Editar</button>
+            </tr>
+        </table>  
+
+    </div>
+
+    <h3> Editar</h3>
+<form (ngSubmit)="actualizarUsuarioF()" action="">
+    <table class="col-s-12">
+
+        <tr>
+            <td><label for="nombre">Nombre</label></td>
+            <td><input type="text" id="txtnombre" placeholder="Nombre" name="nombreProducto"
+                     [(ngModel)]="actualizarUsuario.dniUsuario"></td>
+        </tr>
+
+        <!-- ProductoActu(nombreProducto,mililitrosProducto,descripcionProducto,volalcoholProducto,imagenProducto ) -->
+
+    </table>
+
+    <div class="col-s-9 boton">
+        <button type="summit">Guardar Datos Nuevos</button>
+    </div>
+</form>
+
+</div>
+
+

@@ -1,0 +1,129 @@
+<div class="col-s-12">
+    <div class="titulo">
+        <h1>Producto</h1>
+    </div>
+</div>
+<div class="col-s-12">
+
+
+<form  action=""(ngSubmit)="agregar()">
+    <table class="col-s-12">
+
+       
+
+        <tr>
+            <td><label for="nombre">Nombre</label></td>
+            <td><input type="text" 
+                id="nombre" 
+                placeholder="Nombre" 
+                name="nombreProducto"
+                [(ngModel)]="nombreProducto"
+                ></td>
+        </tr>
+        <tr>
+            <td><label for="mililitro">Mililitro</label></td>
+            <td><input type="number" 
+                id="mililitro" 
+                placeholder="militro" 
+                name="mililitros"
+                [(ngModel)]="mililitrosProducto"
+                ></td>
+        </tr>
+
+        <tr>
+            <td><label for="descripcion">Descripcion</label></td>
+            <td><input type="text" 
+                id="descripcion" 
+                placeholder="descripcion" 
+                name="descripcion"
+                [(ngModel)]="descripcionProducto"
+                ></td>
+        </tr>
+
+        <tr>
+            <td><label for="volumenalcohol">Volumen Alcohol</label></td>
+            <td><input type="number" 
+                id="volumenalcohol" 
+                placeholder="volumenalcohol" 
+                name="volumenalcohol"
+                [(ngModel)]="volalcoholProducto"
+                ></td>
+        </tr>
+        <tr>
+            <td><label for="imagen">Direccion Imagen</label></td>
+            <td><input type="text" 
+                id="imagen" 
+                placeholder="imagen" 
+                name="imagen"
+                [(ngModel)]="imagenProducto"
+                ></td>
+        </tr>
+        <tr>
+            <td><label for="categoriaProducto">Categoria Producto</label></td>
+            <td>
+                <select for="categoriaProducto" 
+                id="categoriaProducto" 
+                placeholder="categoriaProducto" 
+                name="categoriaProducto"
+                [(ngModel)]="categoriaProducto">
+
+                    <option [ngValue]=categoria *ngFor="let categoria of categorias;let i=index">{{categoria.getnombreCategoria}}</option>
+                    <input  
+                >
+                </select>
+                </td>   
+        </tr>
+        <tr>
+            <td><label for="marcaProducto">Marca Producto</label></td>
+            <td>
+                <select type="marca" [(ngModel)]="marcaProducto" id="marca" 
+                placeholder="marca" 
+                name="marcaProducto" for="marcaProducto" >
+                    <option [ngValue]=marca *ngFor="let marca of marcas;let i=index">{{marca.getnombremarca}}</option>
+                    
+                </select>
+                </td>
+        </tr>
+        
+
+    </table>
+    
+    <div class="col-s-9 boton">
+        <button type="summit">Agregar</button>
+    </div>
+</form>
+    <form (ngSubmit)="eliminar()" action="">
+        <div class="col-s-3 boton">
+            <button type="submit" class="extra">Eliminar</button>
+        </div>
+    <div class="cajat col-s-12">
+
+        <table class="col-s-12" id="tabla2">
+            <tr >
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Mililitros</th>
+                <th>Descripcion</th>
+                <th>Volumen Alcohol</th>
+                <th>Categoria</th>
+                <th>Marca</th>
+                <th>Elimar</th>
+            </tr>
+        
+            <tr *ngFor="let producto of productos,let i=index">
+                <td>{{producto.getcodproducto}}</td>
+                <td>{{producto.getnombreproducto}}</td>
+                <td>{{producto.getmililitrosproducto}}</td>
+                <td>{{producto.getdescripcionproducto}}</td>
+                <td>{{producto.getvoalcoholProducto}}</td>
+                <td>{{producto.getcategoriaproducto.getnombreCategoria}}</td>
+                <td>{{producto.getmarcaproducto.getnombremarca}}</td>
+                <td><input type="checkbox"   (click)="eliminacion.unshift(i)"></td>
+            </tr>
+        
+        
+        </table>
+
+    </div>
+    </form>
+</div>
